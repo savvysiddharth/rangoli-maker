@@ -4,6 +4,7 @@ body {
   background-color: rgb(0, 0, 0);
   width: 100vw;
   overscroll-behavior: none;
+  overflow: hidden;
 }
 
 button {
