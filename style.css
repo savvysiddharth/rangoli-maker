@@ -8,7 +8,7 @@ body {
 }
 
 button {
-  padding: 8px 20px;
+  padding: 7px 10px;
   margin: 10px;
   font-size: 20px;
   border-radius: 10px;
@@ -29,4 +29,25 @@ button:active {
 
 button:focus {
   outline: none;
+}
+
+input[type=color] {
+  border: 2px solid white;
+  padding: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  outline: none;
+  position: absolute;
+  right: 15px;
+  top: 13px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
 }

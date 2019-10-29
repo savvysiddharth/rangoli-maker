@@ -18,9 +18,10 @@ function setup() {
   c.style('margin','0 auto');
   background(0);
   noStroke();
-  r = random(0, 255);
-  g = random(0, 255);
-  b = random(0, 255);
+  //Initializng color
+  r = 102;
+  g = 78;
+  b = 174;
   translate(width/2,height/2);
   displayInstructions();
 }
@@ -48,7 +49,7 @@ function displayInstructions() {
   textSize(32);
   text("< design your rangoli here >", -100, -100, 210, 100);
   textSize(16);
-  text("color will change at each stroke...", -140, 0 , 300, 100);
+  text("pick your color from top right...", -140, 0 , 300, 100);
   text("...drag your mouse or swipe your finger", -120, 40 , 300, 100);
   textSize(12);
   // text("@savvysiddharth", -40, 200 , 300, 100);
@@ -79,16 +80,30 @@ function draw() {
 }
 
 function mouseReleased() {
-  r = random(0, 255);
-  g = random(0, 255);
-  b = random(0, 255);
+  // r = random(0, 255);
+  // g = random(0, 255);
+  // b = random(0, 255);
 }
 
 function clearCanvas() {
+  window.navigator.vibrate(200);
   background(0);
   // displayInstructions();
   // hideButtons();
   untouched = true;
+}
+
+function changeColor(picker) {
+  function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
+  function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
+  function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
+  function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
+
+  const hexColor = picker.value;
+
+  r = hexToR(hexColor);
+  g = hexToG(hexColor);
+  b = hexToB(hexColor);
 }
 
 hideButtons(); // initially hidden
