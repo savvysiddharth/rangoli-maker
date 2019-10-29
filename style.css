@@ -8,9 +8,9 @@ body {
 }
 
 button {
-  padding: 7px 10px;
+  padding: 7px 9px;
   margin: 10px 3px;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: 10px;
   border: 2px solid white;
   color: white;
@@ -42,6 +42,7 @@ input[type=color] {
   position: absolute;
   right: 10px;
   top: 15px;
+  cursor: pointer;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -50,4 +51,19 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
   border: none;
   border-radius: 50%;
+}
+
+#random-btn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 47px;
+  top: 15px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.1s;
+}
+
+#random-btn:active {
+  transform: rotate(90deg);
 }

@@ -1,5 +1,6 @@
 const downloadbtn = document.querySelector("#download");
 const clearbtn = document.querySelector("#clear");
+const colorpicker = document.querySelector("#colpick");
 
 let r,g,b;
 
@@ -49,7 +50,7 @@ function displayInstructions() {
   textSize(32);
   text("< design your rangoli here >", -100, -100, 210, 100);
   textSize(16);
-  text("pick your color from top right...", -140, 0 , 300, 100);
+  text("pick your colors from top right...", -140, 0 , 300, 100);
   text("...drag your mouse or swipe your finger", -120, 40 , 300, 100);
   textSize(12);
   // text("@savvysiddharth", -40, 200 , 300, 100);
@@ -60,7 +61,7 @@ let untouched = true;
 function draw() {
   translate(width/2,height/2);
   fill(r,g,b);
-  if(mouseIsPressed) {
+  if(mouseIsPressed && mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
     if(untouched) {
       background(0);
       showButtons();
@@ -79,10 +80,19 @@ function draw() {
   }
 }
 
+let getRandomColors = false;
+
 function mouseReleased() {
-  // r = random(0, 255);
-  // g = random(0, 255);
-  // b = random(0, 255);
+  if(getRandomColors) {
+    randomizeColor();
+  }
+}
+
+function randomizeColor() {
+  r = parseInt(random(0, 255));
+  g = parseInt(random(0, 255));
+  b = parseInt(random(0, 255));
+  colorpicker.value = rgbToHex(r,g,b);
 }
 
 function clearCanvas() {
@@ -94,6 +104,7 @@ function clearCanvas() {
 }
 
 function changeColor(picker) {
+  getRandomColors = false;
   function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
   function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
   function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
@@ -105,5 +116,27 @@ function changeColor(picker) {
   g = hexToG(hexColor);
   b = hexToB(hexColor);
 }
+
+function doRandomColors() {
+  window.navigator.vibrate(100);
+  getRandomColors = true;
+  randomizeColor();
+}
+
+function rgbToHex(r,g,b) {
+  var toHex = function (rgb) {
+    var hex = Number(rgb).toString(16);
+    if (hex.length < 2) {
+         hex = "0" + hex;
+    }
+    return hex;
+  };
+
+  var red = toHex(r);
+  var green = toHex(g);
+  var blue = toHex(b);
+  return '#'+red+green+blue;
+}
+
 
 hideButtons(); // initially hidden

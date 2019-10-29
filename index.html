@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <button id="download" onclick="saveCanvas('rangoli', 'png')"><i class="ion-ios-download-outline"></i> save this rangoli!</button>
+    <button id="download" onclick="saveCanvas('rangoli', 'png')"><i class="ion-ios-download-outline"></i> save rangoli!</button>
     <button id="clear" onclick="clearCanvas()"> <i class="ion-ios-close-outline"></i> clean it</button>
-    <input type="color" value="#664EAE" onchange="changeColor(this)">
+    <input type="color" value="#664EAE" onclick="changeColor(this)" title="choose custom color" id="colpick">
+    <img src="random-colors.png" id="random-btn" title="get random color at each stroke" onclick="doRandomColors()">
   </body>
   <script src="rangoli.js"></script>
   <!-- by @savvysiddharth -->
