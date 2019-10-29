@@ -9,7 +9,7 @@ body {
 
 button {
   padding: 7px 10px;
-  margin: 10px;
+  margin: 10px 3px;
   font-size: 20px;
   border-radius: 10px;
   border: 2px solid white;
@@ -40,8 +40,8 @@ input[type=color] {
   width: 30px;
   outline: none;
   position: absolute;
-  right: 15px;
-  top: 13px;
+  right: 10px;
+  top: 15px;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {

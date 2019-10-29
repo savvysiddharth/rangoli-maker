@@ -14,7 +14,7 @@ function showButtons() {
 }
 
 function setup() {
-  let c = createCanvas(window.screen.width, window.screen.height-170);
+  let c = createCanvas(window.innerWidth, window.innerHeight-80);
   c.style('margin','0 auto');
   background(0);
   noStroke();
