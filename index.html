@@ -12,11 +12,12 @@
     <script src="lib/p5.dom.min.js"></script>
     <link rel="stylesheet" href="vendors/css/ionicons.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="random-colors.png">
   </head>
   <body>
     <button id="download" onclick="saveCanvas('rangoli', 'png')"><i class="ion-ios-download-outline"></i> save rangoli!</button>
     <button id="clear" onclick="clearCanvas()"> <i class="ion-ios-close-outline"></i> clean it</button>
-    <input type="color" value="#664EAE" onclick="changeColor(this)" title="choose custom color" id="colpick">
+    <input type="color" value="#664EAE" onchange="changeColor(this)" title="choose custom color" id="colpick" onclick="getRandomColors = false">
     <img src="random-colors.png" id="random-btn" title="get random color at each stroke" onclick="doRandomColors()">
   </body>
   <script src="rangoli.js"></script>

@@ -30,21 +30,27 @@ function setup() {
 function displayInstructions() {
   fill(random(0,255),random(0,255),random(0,255));
   textStyle(BOLD);
-  textSize(42);
-  let chars = ['R','A','N','G','O','L','I'];
-  let x = -150;
-  for(let i=0; i<7; i++) {
-    fill(random(0,255),random(0,255),random(0,255));
-    if(random() < 0.5) chars[i] = chars[i].toLowerCase();
-    else chars[i] = chars[i].toUpperCase();
-    if(i == 6) {
-      if(chars[5] == chars[5].toLowerCase()) {
-        chars[6] = chars[6].toLowerCase();
-      }
-    }
-    text(chars[i], x, -220, 200, 100);
-    x += 50;
-  }
+  textSize(60);
+  // let chars = ['R','A','N','G','O','L','I'];
+  let chars = ['रं', 'गो', 'ली'];
+  let x = -100;
+  text(chars[0], x, -220, 200, 100);
+  fill(random(0,255),random(0,255),random(0,255));
+  text(chars[1], x+50, -220, 200, 100);
+  fill(random(0,255),random(0,255),random(0,255));
+  text(chars[2], x+120, -220, 200, 100);
+  // for(let i=0; i<7; i++) {
+  //   fill(random(0,255),random(0,255),random(0,255));
+  //   if(random() < 0.5) chars[i] = chars[i].toLowerCase();
+  //   else chars[i] = chars[i].toUpperCase();
+  //   if(i == 6) {
+  //     if(chars[5] == chars[5].toLowerCase()) {
+  //       chars[6] = chars[6].toLowerCase();
+  //     }
+  //   }
+  //   text(chars[i], x, -220, 200, 100);
+  //   x += 50;
+  // }
   textStyle(NORMAL);
   fill(255);
   textSize(32);
@@ -58,10 +64,15 @@ function displayInstructions() {
 
 let diameter = 5;
 let untouched = true;
+
+function isMouseInCanvas() {
+  return mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height;
+}
+
 function draw() {
   translate(width/2,height/2);
   fill(r,g,b);
-  if(mouseIsPressed && mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+  if(mouseIsPressed && isMouseInCanvas()) {
     if(untouched) {
       background(0);
       showButtons();
@@ -83,15 +94,15 @@ function draw() {
 let getRandomColors = false;
 
 function mouseReleased() {
-  if(getRandomColors) {
+  if(getRandomColors && isMouseInCanvas()) {
     randomizeColor();
   }
 }
 
 function randomizeColor() {
-  r = parseInt(random(0, 255));
-  g = parseInt(random(0, 255));
-  b = parseInt(random(0, 255));
+  r = parseInt(random(50, 255));
+  g = parseInt(random(50, 255));
+  b = parseInt(random(50, 255));
   colorpicker.value = rgbToHex(r,g,b);
 }
 
@@ -109,9 +120,7 @@ function changeColor(picker) {
   function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
   function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
   function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
-
   const hexColor = picker.value;
-
   r = hexToR(hexColor);
   g = hexToG(hexColor);
   b = hexToB(hexColor);
