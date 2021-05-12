@@ -24,8 +24,10 @@
     <link rel="icon" href="random-colors.png">
   </head>
   <body>
-    <button id="download" onclick="saveCanvas('rangoli', 'png')"><i class="ion-ios-download-outline"></i> save rangoli!</button>
-    <button id="clear" onclick="clearCanvas()"> <i class="ion-ios-close-outline"></i> clean it</button>
+    <a style="margin-left: 10px;" href="https://github.com/savvysiddharth/rangoli-maker" target="_blank"><button id="github"> <i class="ion-social-github"></i></button></a>
+    <button id="download" onclick="saveCanvas('rangoli', 'png')"><i class="ion-ios-download-outline"></i> save </button>
+    <button id="clear" onclick="clearCanvas()"> <i class="ion-android-refresh"></i> clean </button>
+
     <input type="color" value="#664EAE" onchange="changeColor(this)" title="choose custom color" id="colpick" onclick="getRandomColors = false">
     <img src="random-colors.png" id="random-btn" title="get random color at each stroke" onclick="doRandomColors()">
   </body>
