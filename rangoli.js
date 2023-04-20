@@ -1,16 +1,13 @@
-// const downloadbtn = document.querySelector("#download");
 const clearbtn = document.querySelector("#clear");
 const colorpicker = document.querySelector("#colpick");
 
 let r,g,b;
 
 function hideButtons() {
-  // downloadbtn.style.opacity = "0";
   clearbtn.style.opacity = "0";
 }
 
 function showButtons() {
-  // downloadbtn.style.opacity = "1";
   clearbtn.style.opacity = "1";
 }
 
@@ -19,10 +16,6 @@ function setup() {
   c.style('margin','0 auto');
   background(0);
   noStroke();
-  // Start with a fixed color
-  // r = 102;
-  // g = 78;
-  // b = 174;
   doRandomColors();
   translate(width/2,height/2);
   displayInstructions();

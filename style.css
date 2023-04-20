@@ -74,9 +74,6 @@ input[type="color"]::-webkit-color-swatch {
   right: 50%;
   width: 110px;
   transform: translateX(50%);
-  /* background-color: red; */
-  /* width: fit-content; */
-  /* margin: auto; */
 }
 
 #myRange {
@@ -91,11 +88,11 @@ input[type="color"]::-webkit-color-swatch {
 #myRange::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #bebebe; /* Green background */
+  width: 25px;
+  height: 25px;
+  background: #bebebe;
   border-radius: 100%;
-  cursor: pointer; /* Cursor on hover */
+  cursor: pointer;
 }
 
 a, a:hover, a:visited, a:active {
